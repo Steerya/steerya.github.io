@@ -1,1 +1,236 @@
-<!-- placeholder -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Cristian Pistamiglio — Steerya</title>
+
+  <meta name="description" content="Cristian Pistamiglio — Founder & CEO at Steerya." />
+
+  <style>
+    :root{
+      --bg:#000;
+      --fg:#fff;
+      --muted:rgba(255,255,255,.62);
+      --rule:rgba(255,255,255,.12);
+      --tap:rgba(255,255,255,.06);
+      --max:420px;
+      --font: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+      /* Executive gradient (subtle, used only for text accents) */
+      --grad: linear-gradient(90deg, #29b6ff 0%, #7b61ff 55%, #ff4fd8 100%);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:var(--font);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: geometricPrecision;
+    }
+
+    .wrap{
+      min-height:100dvh;
+      padding:
+        calc(env(safe-area-inset-top) + 32px)
+        24px
+        calc(env(safe-area-inset-bottom) + 32px)
+        24px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--max);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      opacity:0;
+      transform: translateY(6px);
+      animation: enter .55s ease-out forwards;
+    }
+
+    @keyframes enter{
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    .logo{
+      width:90px;
+      height:auto;
+      margin-bottom:38px;
+      opacity:0;
+      transform: translateY(4px);
+      animation: fadeUp .6s ease-out .06s forwards;
+    }
+
+    .name{
+      font-size:22px;
+      font-weight:600;
+      letter-spacing:.2px;
+      margin:0;
+      text-align:center;
+
+      /* Gradient but subtle: slightly blended into white */
+      background: var(--grad);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      /* make it executive (not neon): reduce saturation perception */
+      filter: saturate(.9) brightness(.98);
+      opacity:.94;
+
+      animation: fadeUp .6s ease-out .10s forwards;
+      transform: translateY(4px);
+      opacity:0;
+    }
+
+    .role{
+      margin-top:12px;
+      margin-bottom:44px;
+      font-size:14px;
+      font-weight:400;
+      color:var(--muted);
+      letter-spacing:.2px;
+      text-align:center;
+
+      animation: fadeUp .6s ease-out .14s forwards;
+      transform: translateY(4px);
+      opacity:0;
+    }
+
+    @keyframes fadeUp{
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    .actions{
+      width:100%;
+      border-top:1px solid var(--rule);
+
+      animation: fadeUp .6s ease-out .18s forwards;
+      transform: translateY(4px);
+      opacity:0;
+    }
+
+    .action{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+      border-bottom:1px solid var(--rule);
+      text-decoration:none;
+      color:var(--fg);
+      font-size:15px;
+      letter-spacing:.2px;
+      -webkit-tap-highlight-color:transparent;
+      transition: opacity .12s ease-out;
+    }
+
+    .action:active{ background:var(--tap); }
+    .action:hover{ opacity:.92; }
+
+    .chev{
+      font-size:16px;
+      line-height:1;
+      /* subtle gradient accent */
+      background: var(--grad);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      opacity:.75;
+      transform: translateX(0);
+      transition: transform .12s ease-out, opacity .12s ease-out;
+    }
+
+    .action:hover .chev{
+      transform: translateX(2px);
+      opacity:.9;
+    }
+
+    .footer{
+      margin-top:48px;
+      text-align:center;
+      font-size:11px;
+      color:rgba(255,255,255,.45);
+      letter-spacing:.15px;
+      line-height:1.5;
+
+      animation: fadeUp .6s ease-out .22s forwards;
+      transform: translateY(4px);
+      opacity:0;
+    }
+
+    .footer a{
+      color:rgba(255,255,255,.6);
+      text-decoration:none;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .card, .logo, .name, .role, .actions, .footer{
+        animation:none !important;
+        opacity:1 !important;
+        transform:none !important;
+      }
+      .action:hover .chev{ transform:none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <section class="card" aria-label="Executive contact card">
+
+      <!-- LOGO -->
+      <img class="logo" src="./assets/logo.png" alt="Steerya logo" />
+
+      <!-- NAME -->
+      <h1 class="name">Cristian Pistamiglio</h1>
+      <div class="role">Founder &amp; CEO</div>
+
+      <!-- ACTIONS -->
+      <nav class="actions" aria-label="Actions">
+
+        <a class="action" href="mailto:cristian@steerya.com">
+          <span>Email</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </a>
+
+        <a class="action" href="tel:+393393922431">
+          <span>Direct line</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </a>
+
+        <a class="action" href="https://www.steerya.com" target="_blank" rel="noopener">
+          <span>Website</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </a>
+
+        <a class="action" href="./contact.vcf" download="Cristian-Pistamiglio.vcf">
+          <span>Save card</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </a>
+
+        <a class="action" href="https://www.linkedin.com/in/cristian-pistamiglio-7a310372/" target="_blank" rel="noopener">
+          <span>LinkedIn</span>
+          <span class="chev" aria-hidden="true">›</span>
+        </a>
+
+      </nav>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        Steerya<br>
+        Human-guided technology<br>
+        <a href="https://www.steerya.com" target="_blank" rel="noopener">www.steerya.com</a>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>
+
